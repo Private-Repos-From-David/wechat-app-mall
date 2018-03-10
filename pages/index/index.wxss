@@ -1,4 +1,5 @@
 /**index.wxss**/
+@import "/assets/iconfont/iconfont";
 
 .container {
   background-color: #F2f2f2;
@@ -10,14 +11,14 @@
 }
 .swiper_box {
   width: 100%;
-  height:562.5rpx;
+  height:300rpx;
 }
 
 swiper-item image {
   width: 100%;
   display: inline-block;
   overflow: hidden;
-  height:562.5rpx;
+  height:300rpx;
 }
 .swiper-container .dots{  
   position: absolute;  
@@ -73,14 +74,15 @@ swiper-item image {
   justify-content: space-between;  
   flex-wrap:wrap;
   box-sizing: content-box;
-  padding: 24rpx;
+  padding: 10rpx;
+  margin: 3rpx;
 }
 .goods-box{
   width: 339rpx;
   height: 472rpx;
   background-color: #fff;
   overflow: hidden;
-  margin-bottom: 24rpx;
+  margin: 10rpx;
 }
 .goods-box .img-box{
   width: 339rpx;

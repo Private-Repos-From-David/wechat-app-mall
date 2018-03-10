@@ -102,7 +102,7 @@
                 加入购物车
              </view>
              <view class="popup-join-btn" wx:if="{{shopType =='tobuy'}}" bindtap="buyNow">
-                立即购买
+                gfygyugyu
              </view>                      
         </view>
     </view>

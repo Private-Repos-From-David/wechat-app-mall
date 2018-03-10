@@ -1,3 +1,5 @@
+@import "/assets/iconfont/iconfont";
+
 .container{
   min-height: 100%;
   overflow: hidden;
@@ -6,9 +8,9 @@
 .userinfo {
 	display: flex;
 	flex-direction: column;
-	padding: 50rpx 0;
-	align-items: center;
-	background: #e85654;
+	padding: 10rpx 0;
+	align-items: left;
+	background: #EECC33;
   width: 750rpx;
 }
 
@@ -20,7 +22,7 @@
 }
 
 .userinfo-nickname {
-  margin-top: 20rpx;
+  margin-left: 20rpx;
   color: #FFF;
 }
 

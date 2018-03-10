@@ -14,27 +14,30 @@
     </view>
   </view>
   <view class="my-item" style='background:none;display:flex;'>
-    <view>当前积分 {{score}} </view>
+    <view class='iconfont icon-iconfontxinshouliyu'> 当前积分 {{score}} </view>
     <button wx:if="{{score_sign_continuous == 0}}" style='height:80rpx;margin-right:70rpx;' bindtap="scoresign">每日签到</button>
     <button wx:if="{{score_sign_continuous > 0}}" disabled='true' style='height:80rpx;margin-right:70rpx;'>已连续{{score_sign_continuous}}天签到</button>
   </view>
   <view class="my-item">
-    <navigator url="/pages/order-list/index" hover-class="navigator-hover">我的订单</navigator>
+    <navigator class="iconfont icon-gouwuche" url="/pages/shop-cart/index" hover-class="navigator-hover"> 我的购物车</navigator>
   </view>
   <view class="my-item">
-    <navigator url="/pages/select-address/index" hover-class="navigator-hover">我的收货地址</navigator>
+    <navigator class='iconfont icon-74wodedingdan' url="/pages/order-list/index" hover-class="navigator-hover"> 我的订单</navigator>
   </view>
   <view class="my-item">
-    <navigator url="/pages/mycoupons/index" hover-class="navigator-hover">我的优惠券</navigator>
+    <navigator class='iconfont icon-web__bitebi' url="/pages/select-address/index" hover-class="navigator-hover"> 我的地址</navigator>
+  </view>
+  <view class="my-item">
+    <navigator class="iconfont icon-43" url="/pages/mycoupons/index" hover-class="navigator-hover"> 我的优惠券</navigator>
   </view>
   <view wx:if="{{!userMobile}}" class="my-item" style="border:none;padding-right:150rpx;width:auto;">
-    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">绑定手机号码</button>
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 绑定手机号码</button>
   </view>
   <view wx:if="{{userMobile}}" class="my-item" style="border:none;padding-right:150rpx;width:auto;">
     {{userMobile}}
   </view>
   <view style="height:20rpx;background: #eee;width:100%;"></view>
-  <view class="about" bindtap="aboutUs">
+  <view class="iconfont icon-about" bindtap="aboutUs">
     关于我们
   </view>
 
@@ -44,6 +47,6 @@
   </view>
   
   <view style="height:20rpx;background: #eee;width:100%;"></view>
-  <view class="version">Powered by EastWorld v {{version}}</view>
+  <view class="version">Powered by 共享算力 v {{version}}</view>
   <view style="height:20rpx;background: #eee;width:100%;"></view>
 </view>

@@ -4,7 +4,6 @@
     <image class="remind-img" src="/images/more/loading.gif"></image>
   </view>
   <block wx:else>
-    <image class="title" src="/images/more/title8.png"></image>
     <view class="content">
       <view class="hd" style="transform:rotateZ({{angle}}deg);">
         <image class="logo" src="{{userInfo.avatarUrl}}"></image>
@@ -14,9 +13,9 @@
       <view class="bd">
          <image class="smalltitle" src="/images/more/confirm-word1.png"></image>
         <view class="confirm-btn" bindtap='goToIndex'>
-          <text >进入店铺</text>
+          <text>开始使用</text>
         </view>
-        <text class="copyright">@qindiandadudu 贡献本页代码</text>
+        <text class="copyright">共享算力 @ 杜宇</text>
       </view>
     </view>
   </block>
