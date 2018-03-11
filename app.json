@@ -33,26 +33,26 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "images/nav/home-off.png",
-        "selectedIconPath": "images/nav/home-on.png",
+        "iconPath": "/assets/img/home-off.png",
+        "selectedIconPath": "/assets/img/home-on.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/profit/index",
-        "iconPath": "images/nav/cart-off.png",
-        "selectedIconPath": "images/nav/cart-on.png",
+        "iconPath": "/assets/img/profit-off.png",
+        "selectedIconPath": "/assets/img/profit-on.png",
         "text": "收益"
       },
       {
         "pagePath": "pages/balance/index",
-        "iconPath": "images/nav/my-off.png",
-        "selectedIconPath": "images/nav/my-on.png",
+        "iconPath": "/assets/img/wallet-off.png",
+        "selectedIconPath": "/assets/img/wallet-on.png",
         "text": "资产"
       },
       {
         "pagePath": "pages/my/index",
-        "iconPath": "images/nav/my-off.png",
-        "selectedIconPath": "images/nav/my-on.png",
+        "iconPath": "/assets/img/my-off.png",
+        "selectedIconPath": "/assets/img/my-on.png",
         "text": "我的"
       }
     ]
