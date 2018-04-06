@@ -70,16 +70,17 @@ swiper-item image {
 }
 
 .goods-container{
-  display: flex;
+  display: inline;
+  position: relative;
   justify-content: space-between;  
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   box-sizing: content-box;
-  padding: 10rpx;
+  padding: 5rpx;
   margin: 3rpx;
 }
 .goods-box{
-  width: 339rpx;
-  height: 472rpx;
+  width: 700rpx;
+  height: 343rpx;
   background-color: #fff;
   overflow: hidden;
   margin: 10rpx;
@@ -88,12 +89,24 @@ swiper-item image {
   width: 339rpx;
   height: 339rpx;
   overflow: hidden;
+  margin-left: 2rpx;
+  margin-top: 2rpx;
+  display: abslute;
+  float: left;
 }
 .goods-box .img-box image{
    width: 339rpx;
    height: 339rpx;
 }
-.goods-box .goods-title{
+
+.goods-info{
+  display: abslute;
+  margin-left: 350rpx;
+  margin-top: 10rpx;
+  width: 280rpx;
+  height: 50rpx;
+}
+.goods-info .goods-title{
   width: 280rpx;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -103,14 +116,25 @@ swiper-item image {
   color:#000;
   margin-left: 24rpx;
 }
-.goods-box .goods-price{
-  width: 280rpx;
+.goods-box .goods-price-new{
+  /* width: 280rpx; */
   overflow: hidden;
   font-size: 24rpx;
   padding: 24rpx 0;
   color:#e64340;
   margin-left: 24rpx;
 }
+
+.goods-box .goods-price-org{
+  /* width: 280rpx; */
+  overflow: hidden;
+  font-size: 24rpx;
+  padding: 24rpx 0;
+  color:#aaa;
+  margin-left: 24rpx;
+  text-decoration: line-through;
+}
+
 .no-more-goods{
   text-align: center;
   font-size: 24rpx;

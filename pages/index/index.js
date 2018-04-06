@@ -75,11 +75,12 @@ Page({
       })
     })
     */
+
+    
+
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/banner/list',
-      data: {
-        key: 'mallName'
-      },
+      url: 'https://api.it120.cc/content/banner/',
+      data: {},
       success: function(res) {
         if (res.data.code == 404) {
           wx.showModal({
@@ -95,14 +96,14 @@ Page({
       }
     })
     wx.request({
-      url: 'https://api.it120.cc/'+ app.globalData.subDomain +'/shop/goods/category/all',
+      url: 'https://api.it120.cc/category/',
       success: function(res) {
-        var categories = [{id:0, name:"全部"}];
+        var categories = [];
         if (res.data.code == 0) {
-          for (var i = 0; i < res.data.data.length; i++) {
-            categories.push(res.data.data[i]);
-          }
-        }
+          for (var i = 0; i < res.data.data.categoryList.length; i++) {
+            categories.push(res.data.data.categoryList[i]);
+          } 
+        } 
         that.setData({
           categories:categories,
           activeCategoryId:0
@@ -120,10 +121,9 @@ Page({
     console.log(categoryId)
     var that = this;
     wx.request({
-      url: 'https://api.it120.cc/'+ app.globalData.subDomain +'/shop/goods/list',
+      url: 'https://api.it120.cc/category/goods/',
       data: {
         categoryId: categoryId,
-        nameLike: that.data.searchInput
       },
       success: function(res) {
         that.setData({
@@ -131,14 +131,14 @@ Page({
           loadingMoreHidden:true
         });
         var goods = [];
-        if (res.data.code != 0 || res.data.data.length == 0) {
+        if (res.data.code != 0 || res.data.data.goods.length == 0) {
           that.setData({
             loadingMoreHidden:false,
           });
           return;
         }
-        for(var i=0;i<res.data.data.length;i++){
-          goods.push(res.data.data[i]);
+        for(var i=0;i<res.data.data.goods.length;i++){
+          goods.push(res.data.data.goods[i]);
         }
         that.setData({
           goods:goods,
@@ -235,16 +235,16 @@ Page({
   getNotice: function () {
     var that = this;
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/notice/list',
-      data: { pageSize :5},
+      url: 'https://api.it120.cc/content/notice/', 
+      data: {},
       success: function (res) {
         if (res.data.code == 0) {
           that.setData({
             noticeList: res.data.data
-          });
+          }); 
         }
-      }
-    })
+      } 
+    })  
   },
   listenerSearchInput: function (e) {
     this.setData({

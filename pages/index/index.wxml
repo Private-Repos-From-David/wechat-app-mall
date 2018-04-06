@@ -5,19 +5,19 @@
     <!-- <view class="my-item"></view> -->
       <view class="iconfont icon-announce notice_iteml"></view>
       <swiper wx:if="{{noticeList}}" class="notice_swiper" vertical="true" autoplay="true" circular="true" interval="3000">
-        <navigator wx:for-items="{{noticeList.dataList}}" wx:key="id" url="/pages/notice/show?id={{item.id}}" open-type="navigate">
+        <navigator wx:for-items="{{noticeList.noticeList}}" wx:key="id" url="/pages/notice/show?id={{item.id}}" open-type="navigate">
           <swiper-item >
             <view class="notice_itemr">{{item.title}}</view>
           </swiper-item>
-        </navigator>
+        </navigator> 
       </swiper>
     </view>
    <view class="swiper-container">
         <swiper class="swiper_box" 
                     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
-            <block wx:for="{{banners}}" wx:key="id">
+            <block wx:for="{{bannerList}}" wx:key="id">
                 <swiper-item>
-                    <image bindtap="tapBanner" data-id="{{item.businessId}}" src="{{item.picUrl}}_m" class="slide-image" width="750rpx" height="562.5rpx"/>
+                    <image bindtap="tapBanner" data-id="{{item.id}}" src="{{item.image}}" class="slide-image" width="750rpx" height="562.5rpx"/>
                 </swiper-item>
             </block>
         </swiper>
@@ -62,11 +62,13 @@
            <view class="img-box">
               <image src="{{item.pic}}_m" class="image" mode="aspectFill" lazy-load="true"/>
            </view>
-           <view class="goods-title">{{item.name}}</view>
-           <view style='display:flex;'>
-            <view class="goods-price">¥ {{item.minPrice}}</view>
-            <view wx:if="{{item.originalPrice && item.originalPrice > 0}}" class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ {{item.originalPrice}}</view>
-           </view>           
+           <view class="goods-info">
+            <view class="goods-title">{{item.name}}</view>
+            <view style='display:flex;'>
+              <view class="goods-price-new">¥ {{item.minPrice}}</view>
+              <view wx:if="{{item.originalPrice && item.originalPrice > 0}}" class="goods-price-org">¥ {{item.originalPrice}}</view>
+           </view> 
+          </view>      
         </view>
     </view>
     <view hidden="{{loadingMoreHidden ? true : false}}" class="no-more-goods">没有更多啦</view>

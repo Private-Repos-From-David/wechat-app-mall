@@ -1,1 +1,7 @@
-/* index.wxss */
+/**index.wxss**/
+@import "/assets/iconfont/iconfont";
+
+.container {
+  background-color: #F2f2f2;
+  min-height: 100%;
+}

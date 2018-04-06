@@ -110,7 +110,6 @@ Page({
         }
       }
     })
-
   },
   checkScoreSign: function () {
     var that = this;

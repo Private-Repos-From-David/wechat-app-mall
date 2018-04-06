@@ -1,2 +1,4 @@
 <!--index.wxml-->
-<text>index.wxml</text>
+<!--1px = 750/320 = 2.34rpx;-->
+<view class="container">
+</view>

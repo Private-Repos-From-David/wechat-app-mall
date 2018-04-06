@@ -16,18 +16,18 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/notice/detail',
+      url: 'https://api.it120.cc/content/notice/' + options.id,
       data: {
-        id: options.id
+        
       },
       success: function (res) {
         if (res.data.code == 0) {
           that.setData({
-            notice: res.data.data
+            notice: res.data.notice
           });
-          WxParse.wxParse('article', 'html', res.data.data.content, that, 5);
+          WxParse.wxParse('article', 'html', res.data.notice.content, that, 5);
         }
-      }
+      } 
     })
   },
 

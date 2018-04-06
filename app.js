@@ -4,10 +4,11 @@ App({
     var that = this;
     //  获取商城名称
     wx.request({
-      url: 'https://api.it120.cc/'+ that.globalData.subDomain +'/config/get-value',
+      url: 'https://api.it120.cc/config/',
       data: {
         key: 'mallName'
       },
+
       success: function(res) {
         if (res.data.code == 0) {
           wx.setStorageSync('mallName', res.data.data.value);
@@ -15,7 +16,7 @@ App({
       }
     })
     wx.request({
-      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/score/send/rule',
+      url: 'https://api.it120.cc/score/send/rule',
       data: {
         code: 'goodReputation'
       },
@@ -26,7 +27,7 @@ App({
       }
     })
     wx.request({
-      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/config/get-value',
+      url: 'https://api.it120.cc/config/get-value',
       data: {
         key: 'recharge_amount_min'
       },
@@ -43,11 +44,13 @@ App({
     var token = that.globalData.token;
     if (token) {
       wx.request({
-        url: 'https://api.it120.cc/' + that.globalData.subDomain + '/user/check-token',
+        url: 'https://api.it120.cc/user/check-token',
         data: {
           token: token
-        },
+        },  
+
         success: function (res) {
+          console.log(res);
           if (res.data.code != 0) {
             that.globalData.token = null;
             that.login();
@@ -58,13 +61,19 @@ App({
     }
     wx.login({
       success: function (res) {
+        console.log(res);
         wx.request({
-          url: 'https://api.it120.cc/'+ that.globalData.subDomain +'/user/wxapp/login',
+          url: 'https://api.it120.cc/user/login',
           data: {
             code: res.code
           },
+          
           success: function(res) {
             if (res.data.code == 10000) {
+              console.log('去注册');
+
+              
+            
               // 去注册
               that.registerUser();
               return;
@@ -76,10 +85,10 @@ App({
                 title: '提示',
                 content: '无法登录，请重试',
                 showCancel:false
-              })
+              }) 
               return;
             }
-            //console.log(res.data.data)
+            console.log(res.data.data)
             that.globalData.token = res.data.data.token;
             that.globalData.uid = res.data.data.uid;
           }
@@ -98,16 +107,17 @@ App({
             var encryptedData = res.encryptedData;
             // 下面开始调用注册接口
             wx.request({
-              url: 'https://api.it120.cc/' + that.globalData.subDomain +'/user/wxapp/register/complex',
+              url: 'https://api.it120.cc/user/register/complex',
+
               data: {code:code,encryptedData:encryptedData,iv:iv}, // 设置请求的 参数
-              success: (res) =>{
+              success: (res) =>{    
                 wx.hideLoading();
                 that.login();
               }
-            })
-          }
+            }) 
+          } 
         })
-      }
+      }     
     })
   },
   sendTempleMsg: function (orderId, trigger, template_id, form_id, page, postJsonString){
@@ -177,7 +187,33 @@ App({
         }
       })
     }
-
+  },
+  /*
+token	String	登录接口返回的登录凭证，不传该参数则获取系统级别的对象数据	X
+page	int	获取第几页数据，不传该参数默认为1	X
+pageSize	int	每页显示多少条数据，不传该参数默认为50	X
+type	String	自定义的数据类型，添加/修改Json对象的时候指定，不传该参数默认获取全部数据	X
+  */
+  getUserDataset: function (pageNum, pageSizeNum, typeId) {
+    var that = this;
+    wx.request({
+      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/json/list',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+        token: that.globalData.token,
+        type: typeId,
+        page: pageNum,
+        pageSize: pageSizeNum
+      },
+      success: (res) => {
+        console.log('*********************');
+        console.log(res.data);
+        console.log('*********************');
+      }
+    })
   },
   globalData:{
     userInfo:null,
